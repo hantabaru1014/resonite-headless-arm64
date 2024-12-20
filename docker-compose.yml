@@ -1,0 +1,9 @@
+services:
+  app:
+    # image: ghcr.io/hantabaru1014/resonite-headless-arm64:latest
+    build: .
+    volumes:
+      - ./Config/Config.json:/app/Config/Config.json
+    tty: true
+    # bridgeだと環境によってはNAT punchに失敗するのでhost or macvlanが良さそう？
+    network_mode: host
